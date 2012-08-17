@@ -1,0 +1,30 @@
+
+div.container
+	div.content
+		div.title
+			h1= m.title
+				small= m.subtitle
+		
+		div.navigation
+			each x in m.projects
+				span(id='#' + x.navigation) > #{x.navigation}
+			span(id='#resume') > Resume
+			
+		p.intro_alt #{m.intro} You can send me email at tmoran.jobs@gmail.com, or check out my <a href="http://www.linkedin.com/pub/timothy-moran/31/490/31b">LinkedIn profile</a>.
+		
+		each x in m.projects
+			div.project(id=x.navigation)
+				span.top_button Back to top
+				h2 #{x.title}
+				div.images
+					each image in x.images
+						a(href='/images/' + image.path, title=image.title, rel='lightbox[#{x.navigation}]')
+							img(src='/images/' + image.thumb)
+				div.text
+					each y in x.body
+						p #{y}
+		
+		div#resume.project
+			span.top_button Back to top
+			h2 Resume
+			<a title="View Timothy Moran Resume on Scribd" href="http://www.scribd.com/doc/79264839/Timothy-Moran-Resume" style="margin: 12px auto 6px auto; font-family: Helvetica,Arial,Sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 14px; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none; display: block; text-decoration: underline;">Timothy Moran Resume</a><iframe class="scribd_iframe_embed" src="http://www.scribd.com/embeds/79264839/content?start_page=1&view_mode=list&access_key=key-2g1emclr16ueuisac9d" data-auto-height="true" data-aspect-ratio="0.772727272727273" scrolling="no" id="doc_6893" width="100%" height="600" frameborder="0"></iframe><script type="text/javascript">(function() { var scribd = document.createElement("script"); scribd.type = "text/javascript"; scribd.async = true; scribd.src = "http://www.scribd.com/javascripts/embed_code/inject.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(scribd, s); })();</script>
